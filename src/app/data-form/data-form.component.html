@@ -1,0 +1,79 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="LeadForm">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email </label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="" aria-describedby="emailHelp" formControlName="email" placeholder="exemplo@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="cpf" formControlName="cpf" mask="000.000-00" placeholder="CPF">
+                </div>
+                <div class="mb-3">
+                    <label for="tell" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="tell" name="tell" formControlName="tell" mask="(00) 0 0000-0000" placeholder="Telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="end" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="end" formControlName="end" placeholder="Endereço">
+                </div>
+                <div class="mb-3">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" formControlName="cep" mask="00000-000" placeholder="CEP">
+                </div>
+
+                <button type="submit" [disabled]="!LeadForm.valid" class="btn btn-primary" (click)="criar()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg> Enviar</button>
+            </form>
+            <br>
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">CEP</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let List of ListDados; index as i">
+                <td>{{List.nome}}</td>
+                <td>{{List.email}}</td>
+                <td>{{List.cpf}}</td>
+                <td>{{List.tell}}</td>
+                <td>{{List.end}}</td>
+                <td>{{List.cep}}</td>
+                <td>
+                    <button type="submit" class="btn btn-success" (click)="editForm(List,i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                      </svg> Editar</button>
+                    <button type="submit" class="btn btn-warning" (click)="deletForm(List)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                      </svg> Deletar</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<br>
